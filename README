@@ -1,0 +1,116 @@
+avichai
+
+maor_i
+
+
+
+=============================
+=      File description     =
+=============================
+
+SpaceShip.java -  This is an abstract class for a some spaceship.
+SpaceShipFactory.java - This class is about creating the spaceships for the game 
+						according to the given input by the user.
+ComputerControlledSpaceShip.java - This is an abstract class for a computer controlled spaceship.
+HumanSapceShip.java - This is a class for a human controlled spaceship.
+RunnerSpaceShip.java - This is a class for a computer controlled spaceship 
+						which tries to fly away from other spaceships.
+BasherSpaceShip.java - This is a class for a computer controlled spaceship 
+						which tries to bash other spaceships.
+AggressiveSpaceShip.java - This is a class for a computer controlled spaceship which tries 
+							to fly towards other spaceships and shot them.
+DrunkerSpaceShip.java - This is a class for a computer controlled spaceship which tries to fly 
+						towards other  spaceships but because the driver is drunk it does random 
+						action when she is near other spaceship.
+SpecialSpaceShip.java - This is a class for a computer controlled spaceship which flies
+ 						in circles around itself and fire all the time.
+ 						This ship has a cheating ability in a way that her energy is always enough to fire.
+Constant.java - Class for all the mutual constants in the game.
+
+=============================
+=          Design           =
+=============================
+I designed the spaceship classes so they are all a "is a" class of the class
+SpaceShip.
+The SpaceShip class I designed is an abstract class because each instance of a spaceship is a king of 
+spaceship(human, runner etc') but we never create just a spaceship, it has to have a kind.
+And of course it's more than a contract between the classes(as opposed to
+interfaces) and they share most of the abilities and fields with the SpaceShip class.
+
+I also created an abstract ComputerControlledSpaceShip class which extends Spaceship 
+and all the computer controlled space ship(all of them except from the human space ship) extends this class.
+I did that since there are several qualities that all the computer controlled has but not all
+the space ship share(like human spaceship).
+It helps the code in ways of  extensibility, intuitiveness and understandability,
+sensible representation of the classes and their relationships and also prevent code repetition.
+
+Extensibility- the code is extensible because you can add more types of space ship
+				with little work and without changing the written code.
+Modularity - the code addresses this issue in the aspect of him made out of lots
+				of classes combined together to create the game and it's possible
+				to add or remove features from the game without changing other classes,
+				like removing a certain kind of spaceship etc'.
+				 
+Intuitiveness and understandability - I believe the code is very intuitive an understandable
+									  since the code is separated correctly. There is the "father"
+									  class- the SpaceShip which all the specific spaceship inherits from.
+									  And there is a computer controlled "father" class- which all the
+									  computer controlled spaceship inherits from.
+									  The documentation is done good and the names of the variables
+									  and method are clear and understandable.
+									  The methods are short and addresses one action at a time.
+									  The mutual constant are all in the same file.
+Sensible representation of the classes and their relationships - 
+									  I think the code address this issue
+									  since it's divided to the right groups, there is the physic aspect
+									  of the game, the gui  aspect of the game, the spaceship aspect of the
+									  game(their kinds and abilities), and the connection between them.
+									  (SpaceShipFactory etc').
+
+
+=============================
+=  Implementation details   =
+=============================
+The drunkard ship:
+					I designed the drunkard ship so it will always try to get near other ships
+					and collide with them as a drunk driver does but in the moment of truth, when the
+					drunkard ship is so close to her target, the drunkard driver is confused and press all
+					the buttons on the control panel. Sometimes the ship start to shot, sometimes it tries
+					to bash(shield on) and sometimes it tries to teleport.	
+
+The special ship:	I designed the special ship so it will always fly in circles around itself, and fire
+					to all direction.
+					the special thing about this ship is that it has a magic ability to gain energy
+					so it can fire all the time and never need to "rest".
+
+
+
+Comment: in the classes:
+						1.
+							HumanSpaceShip
+							ComputerControlledSpaceShip
+							RunnerSpacheShip
+							AggressiveSpaceShip
+							BasherSpaceShip
+							SpecialSpaceShip
+						
+		I didn't wrote a constructor since all it dose is calling super and java does that for me.
+		
+						2. I decided that when a method gets null as a argument (when it's not suppose to),
+						the method will not do what it suppose to and just skip ahead so the game will
+						continue to run the game(the program will not crash), but the game won't act as we
+						expect from it. (probably when we'll learn exception I could do better than that).
+						
+About constants:
+			The constants that are used in more than one class (or could be used in the 
+			future) are declared in the class Constant.
+			I declared the rest of my (private) constant in the beginning of the class( 
+			SpaceShipFactory and DrunkerSpaceShip) before the constructor.
+			I know that in some cases it might be a contradiction to the namespace pollution principle
+			we've learned.
+			I do that so the code would be more easy to read and that it will be possible to 
+			reuse constant if in the future someone will expand the code and will want to use these constants.
+=============================
+=    Answers to questions   =
+=============================
+no question this week.
